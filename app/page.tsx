@@ -12,7 +12,7 @@ const sectors = [
     desc: "Architectural Design & Urban Planning" 
   },
   { 
-    title: "Visual", sub: "Arts", href: "/FineArts", 
+    title: "Visual", sub: "Arts", href: "/Multimedia", 
     color: "#f87171", icon: Paintbrush, tag: "Creative", 
     desc: "Fine Arts, Illustration & Gallery Works" 
   },
