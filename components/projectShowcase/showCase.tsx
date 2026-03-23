@@ -27,7 +27,7 @@ const projects: Project[] = [
 
 export const ProjectShowcase = () => {
   return (
-    <section id="projects" className="py-32 px-6 bg-[var(--bg-theme)]">
+    <section id="projects" className="py-32 px-6 bg-(--bg-theme)">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
           <div>
@@ -48,7 +48,7 @@ export const ProjectShowcase = () => {
               className="group relative"
             >
               {/* Image Container dengan Border Tema */}
-              <div className="relative aspect-video overflow-hidden rounded-3xl border border-white/10 group-hover:border-[var(--primary-theme)] transition-colors duration-500">
+              <div className="relative aspect-video overflow-hidden rounded-3xl border border-white/10 group-hover:border-(--primary-theme) transition-colors duration-500">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -68,7 +68,7 @@ export const ProjectShowcase = () => {
                   </h4>
                 </div>
                 <div 
-                  className="p-4 rounded-full border border-white/10 group-hover:bg-[var(--primary-theme)] group-hover:text-black transition-all duration-500"
+                  className="p-4 rounded-full border border-white/10 group-hover:bg-(--primary-theme) group-hover:text-black transition-all duration-500"
                 >
                   <ExternalLink size={20} />
                 </div>

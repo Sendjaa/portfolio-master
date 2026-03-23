@@ -8,7 +8,7 @@ export default function DesignGraphicsPage() {
   console.log("Current Theme:", theme); // Debugging: Pastikan theme terdefinisi dengan benar
   return (
     <ThemeWrapper theme={theme}>
-      <main className="bg-[var(--bg-theme)] text-white">
+      <main className="bg-(--bg-theme) text-white">
         <HeroPersonal /> 
         <ProjectShowcase />
       </main>

@@ -27,7 +27,7 @@ export const MultimediaCard = ({ project }: { project: Project }) => {
         loop
         className="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
       />
-      <div className="absolute bottom-0 p-6 bg-gradient-to-t from-black to-transparent w-full">
+      <div className="absolute bottom-0 p-6 bg-linear-to-t from-black to-transparent w-full">
         <h4 className="text-xl font-bold text-white">{project.title}</h4>
         <p className="text-primary text-sm font-mono">{project.tags.join(" • ")}</p>
       </div>
