@@ -2,7 +2,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-// Tambahkan Ruler dan Paintbrush di import lucide-react
 import { Palette, Code2, ArrowRight, MonitorCog, Cpu, ChevronDown, X, Send, Ruler, Paintbrush } from 'lucide-react';
 
 const sectors = [

@@ -5,7 +5,7 @@ import Navigation from '@/components/navigation/navigationDesignGraphics';
 import AboutMe from '@/components/about/aboutDesignGraphics';
 import Experience from '@/components/experience/experienceDesignGraphics';
 import Projetcs from '@/components/project/projectDesignGraphics';
-import { ProjectShowcase } from '@/components/projectShowcase/showCase';
+// import { ProjectShowcase } from '@/components/projectShowcase/showCase';
 import Sertificate from '@/components/sertificate/sertificateDesignGraphics';
 import Skills from '@/components/skills/skillsDesignGraphics';
 import Contact from '@/components/contact/contactDesignGraphics';
