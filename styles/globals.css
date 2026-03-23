@@ -115,6 +115,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* globals.css */
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
