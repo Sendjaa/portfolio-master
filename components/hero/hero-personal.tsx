@@ -14,8 +14,8 @@ export default function App() {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100">
       <section id="home" className="relative pt-20 pb-16 md:pt-24 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
         {/* Decorative Ambient Light - Adjusted for White Theme */}
-        <div className="absolute -top-24 -left-24 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-indigo-500/5 rounded-full blur-[80px] md:blur-[120px] -z-10" />
-        <div className="absolute top-1/2 -right-24 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-rose-500/5 rounded-full blur-[80px] md:blur-[100px] -z-10" />
+        <div className="absolute -top-24 -left-24 w-75 md:w-125 h-75 md:h-125 bg-indigo-500/5 rounded-full blur-[80px] md:blur-[120px] -z-10" />
+        <div className="absolute top-1/2 -right-24 w-62.5 md:w-100 h-62.5 md:h-100 bg-rose-500/5 rounded-full blur-[80px] md:blur-[100px] -z-10" />
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -27,7 +27,7 @@ export default function App() {
               }`}
             >
               <div className="relative">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-400 p-[2px] rotate-3 hover:rotate-0 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-linear-to-tr from-indigo-600 to-violet-400 p-0.5 rotate-3 hover:rotate-0 transition-transform duration-300 shadow-lg">
                   <div className="w-full h-full rounded-2xl bg-white flex items-center justify-center overflow-hidden">
                     <img 
                       src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
@@ -39,7 +39,7 @@ export default function App() {
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full animate-pulse" />
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+                <h3 className="text-lg md:text-xl font-bold bg-linear-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
                   Halo, Saya Alex.
                 </h3>
                 <div className="flex items-center justify-center lg:justify-start gap-1.5 text-slate-400 text-xs font-medium uppercase tracking-wider">
@@ -99,7 +99,7 @@ export default function App() {
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
-            <div className="relative z-10 p-4 md:p-6 rounded-[2rem] md:rounded-[2.5rem] bg-white border border-slate-100 shadow-2xl shadow-indigo-100 overflow-hidden group max-w-[450px] mx-auto lg:max-w-none">
+            <div className="relative z-10 p-4 md:p-6 rounded-4xl bg-white border border-slate-100 shadow-2xl shadow-indigo-100 overflow-hidden group max-w-112.5 mx-auto lg:max-w-none">
               
               {/* Profile Card Floating UI */}
               <div className="space-y-4 md:space-y-6">
@@ -147,11 +147,11 @@ export default function App() {
               </div>
 
               {/* Background Ornament - Subtle for White Theme */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 bg-indigo-500/[0.03] blur-[60px] md:blur-[80px] -z-10" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 bg-indigo-500/3 blur-[60px] md:blur-[80px] -z-10" />
             </div>
 
             {/* Quote / Personal Note */}
-            <div className="absolute -bottom-6 -right-2 md:-bottom-8 md:-right-8 p-3 md:p-4 bg-white border border-slate-100 rounded-xl md:rounded-2xl shadow-xl shadow-slate-200/50 max-w-[150px] md:max-w-[200px] animate-bounce-slow">
+            <div className="absolute -bottom-6 -right-2 md:-bottom-8 md:-right-8 p-3 md:p-4 bg-white border border-slate-100 rounded-xl md:rounded-2xl shadow-xl shadow-slate-200/50 max-w-37.5 md:max-w-50 animate-bounce-slow">
               <p className="text-[9px] md:text-[11px] italic text-slate-500 leading-tight">
                 "Kualitas adalah melakukan hal yang benar saat tidak ada yang melihat."
               </p>

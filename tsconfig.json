@@ -24,7 +24,8 @@
     ],
     "paths": {
       "@/*": [
-        "./*"
+        "./*",
+        "./src/*"
       ]
     }
   },
@@ -34,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, "components/shared/themeWrapper.tsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,0 +1,34 @@
+// src/config/themes.ts
+export interface Theme {
+  primary: string;
+  bg: string;
+  secondary: string;
+  label: string;
+  tagline: string;
+  accent?: string;
+}
+
+export const themes: Record<string, Theme> = {
+  DesignGraphics: {
+    primary: "#4ade80",
+    bg: "#0a1f1a",
+    secondary: "#e0e7e1",
+    label: "Creative Studio",
+    tagline: "Visual Architect & Designer"
+  },
+  Developer: {
+    primary: "#3b82f6",
+    bg: "#020617",
+    secondary: "#f8fafc",
+    label: "Tech Laboratory",
+    tagline: "Full-stack Engineer"
+  },
+  multimedia: {
+    primary: "oklch(0.7 0.25 150)",
+    bg: "oklch(0.12 0.01 270)",    
+    secondary: "oklch(0.98 0.01 270)",
+    accent: "var(--accent)",
+    label: "Motion & Visual",
+    tagline: "Narrative Video Specialist"
+  }
+};
