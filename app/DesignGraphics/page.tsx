@@ -9,8 +9,8 @@ export default function DesignGraphicsPage() {
   return (
     <ThemeWrapper theme={theme}>
       <main className="bg-(--bg-theme) text-white">
-        <ProjectShowcase />
         <HeroPersonal /> 
+        <ProjectShowcase />
       </main>
     </ThemeWrapper>
   );
