@@ -59,7 +59,7 @@ export default function EntryPage() {
   };
 
   return (
-    <div ref={containerRef} className="bg-[#050505] text-white selection:bg-[#4ade80] selection:text-black min-h-screen">
+    <div ref={containerRef} className="bg-[#050505] text-white selection:bg-[#4ade80] selection:text-black min-h-screen overflow-x-hidden">
       
       {/* --- FLOATING NAVBAR --- */}
       <AnimatePresence>
@@ -68,22 +68,36 @@ export default function EntryPage() {
             initial={{ y: -100, x: "-50%", opacity: 0 }}
             animate={{ y: 24, x: "-50%", opacity: 1 }}
             exit={{ y: -100, x: "-50%", opacity: 0 }}
-            className="fixed top-0 left-1/2 z-[100] flex items-center gap-4 md:gap-8 px-4 md:px-6 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl"
+            // Perubahan: w-[90%] md:w-auto untuk memastikan di HP tidak meluap
+            className="fixed top-0 left-1/2 z-[100] flex items-center justify-between md:justify-start gap-3 md:gap-8 px-5 py-3 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl w-[92%] max-w-fit md:w-auto"
           >
-            <Link href="/" className="w-6 h-6 md:w-8 md:h-8 bg-white rounded flex items-center justify-center group">
-              <span className="text-black font-black text-base md:text-lg italic group-hover:scale-110 transition-transform">S</span>
+            {/* Logo S */}
+            <Link href="/" className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 bg-white rounded flex items-center justify-center group">
+              <span className="text-black font-black text-sm md:text-lg italic group-hover:scale-110 transition-transform">S</span>
             </Link>
+
+            {/* Menu Desktop */}
             <div className="hidden md:flex items-center gap-6">
               {sectors.map((s) => (
-                <Link key={s.title} href={s.href} className="font-mono text-[9px] uppercase tracking-widest text-white/40 hover:text-white transition-colors">{s.title}</Link>
+                <Link 
+                  key={s.title} 
+                  href={s.href} 
+                  className="font-mono text-[9px] uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                >
+                  {s.title}
+                </Link>
               ))}
             </div>
-            <div className="h-4 w-px bg-white/10 mx-1 md:mx-2" />
+
+            {/* Separator - Sembunyikan di mobile jika space terbatas */}
+            <div className="hidden xs:block h-4 w-px bg-white/10 mx-1 md:mx-2" />
+
+            {/* Button Start Project */}
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="font-mono text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#4ade80] hover:brightness-125 transition-all cursor-pointer"
+              className="flex-shrink-0 font-mono text-[9px] font-black uppercase tracking-[0.15em] text-[#4ade80] hover:brightness-125 transition-all cursor-pointer whitespace-nowrap"
             >
-              Start Project
+              Start_Project
             </button>
           </motion.nav>
         )}
