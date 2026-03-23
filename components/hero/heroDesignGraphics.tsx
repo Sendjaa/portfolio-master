@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Instagram, Dribbble, Linkedin, Sparkles } from 'lucide-react';
+import { Instagram, Dribbble, Linkedin, Sparkles, PenTool, Palette, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface Theme {
@@ -24,7 +24,6 @@ export const HeroDesignGraphics = ({ theme }: { theme: Theme }) => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Memastikan scroll smooth ke section lain
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -33,112 +32,160 @@ export const HeroDesignGraphics = ({ theme }: { theme: Theme }) => {
   return (
     <section 
       style={{ backgroundColor: theme.bg, color: theme.secondary }}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 transition-colors duration-700"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 transition-colors duration-700 font-sans"
     >
-      {/* Dynamic Background Decor: Mesh Gradient */}
+      {/* Background Decor: Grainy Gradient & Mesh */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+      
       <div 
-        className="absolute w-150 h-150 rounded-full blur-[120px] pointer-events-none transition-transform duration-1000 ease-out opacity-30"
+        className="absolute w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none transition-transform duration-1000 ease-out opacity-20"
         style={{ 
           backgroundColor: theme.primary,
-          transform: `translate(${(mousePos.x - 800) * 0.05}px, ${(mousePos.y - 400) * 0.05}px)` 
+          transform: `translate(${(mousePos.x - 800) * 0.07}px, ${(mousePos.y - 400) * 0.07}px)` 
         }}
       ></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           
-          {/* Sisi Kiri: Teks & Headline */}
-          <div className={`flex-1 space-y-8 transition-all duration-1000 transform ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
-            <div 
-              style={{ borderColor: `${theme.primary}40`, backgroundColor: `${theme.primary}10` }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border backdrop-blur-md"
-            >
-              <Sparkles size={14} style={{ color: theme.primary }} />
-              <span 
-                style={{ color: theme.primary }}
-                className="font-mono text-[10px] uppercase tracking-[0.3em]"
+          {/* Sisi Kiri: Narrative & Bold Typography */}
+          <div className={`flex-1 space-y-10 transition-all duration-1000 transform ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
+            <div className="space-y-4">
+              <div 
+                style={{ borderColor: `${theme.primary}30`, backgroundColor: `${theme.primary}05` }}
+                className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border backdrop-blur-sm"
               >
-                {theme.tagline}
-              </span>
+                <Palette size={14} style={{ color: theme.primary }} />
+                <span 
+                  style={{ color: theme.primary }}
+                  className="font-mono text-[11px] uppercase tracking-[0.4em] font-medium"
+                >
+                  {theme.tagline}
+                </span>
+              </div>
+
+              <h1 className="text-[14vw] lg:text-[9vw] font-black leading-[0.75] tracking-[ -0.05em] uppercase italic">
+                Shape <br />
+                <span 
+                  style={{ 
+                    WebkitTextStroke: `1px ${theme.secondary}`, 
+                    color: 'transparent' 
+                  }}
+                  className="not-italic font-light"
+                >
+                  Vision
+                </span>
+              </h1>
             </div>
 
-            <h1 className="text-[12vw] lg:text-[8vw] font-black leading-[0.8] tracking-tighter uppercase">
-              Visual <br />
-              <span 
-                style={{ color: theme.primary }}
-                className="italic font-serif font-light lowercase"
-              >
-                Architect
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-400 max-w-md leading-tight">
-              Membangun narasi visual melalui strategi desain <span className="font-semibold text-white">modern dan berdampak.</span>
+            <p className="text-xl md:text-2xl text-gray-400 max-w-lg leading-tight font-light tracking-tight">
+              Mentransformasi ide abstrak menjadi <span className="text-white font-medium italic underline decoration-1 underline-offset-4">identitas visual</span> yang berkarakter dan tak terlupakan.
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4">
+            <div className="flex flex-wrap items-center gap-8 pt-6">
               <button 
-                onClick={() => scrollToSection("about")} 
+                onClick={() => scrollToSection("works")} 
                 style={{ backgroundColor: theme.primary, color: theme.bg }}
-                className="group relative px-10 py-5 rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl font-black uppercase tracking-widest text-xs"
+                className="group relative px-12 py-5 overflow-hidden transition-all hover:pr-16 active:scale-95 font-bold uppercase tracking-tighter text-sm italic"
               >
-                <span className="relative z-10">Mulai Jelajahi</span>
-                <div className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300 opacity-20"></div>
+                <span className="relative z-10">Lihat Karya</span>
+                <span className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all">→</span>
               </button>
               
-              <div className="flex gap-5" style={{ color: `${theme.primary}80` }}>
-                <Instagram className="hover:text-white cursor-pointer transition-all hover:-translate-y-1" size={22} />
-                <Dribbble className="hover:text-white cursor-pointer transition-all hover:-translate-y-1" size={22} />
-                <Linkedin className="hover:text-white cursor-pointer transition-all hover:-translate-y-1" size={22} />
+              <div className="flex gap-6 items-center" style={{ color: `${theme.secondary}60` }}>
+                <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+                <a href="#" className="hover:text-white transition-colors"><Dribbble size={20} /></a>
+                <div className="h-8 w-px bg-white/10 mx-2"></div>
+                <div className="flex flex-col text-[10px] uppercase tracking-widest leading-none">
+                  <span>Inspiration</span>
+                  <span className="font-bold text-white">Curated</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Sisi Kanan: Foto Profil */}
+          {/* Sisi Kanan: Art-Focused Profile Frame */}
           <div className={`relative flex-1 max-w-md transition-all duration-1000 delay-300 transform ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="relative group">
+              {/* Frame Artistik */}
               <div 
-                style={{ borderColor: `${theme.primary}40` }}
-                className="relative z-10 aspect-4/5 rounded-4xl overflow-hidden border-2 bg-black/20 shadow-2xl"
+                style={{ borderColor: `${theme.primary}20` }}
+                className="relative z-10 aspect-[3/4] overflow-hidden border bg-zinc-900 shadow-[30px_30px_0px_-1px_rgba(255,255,255,0.02)]"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop" 
-                  alt="Profile" 
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop" 
+                  alt="Graphic Designer Profile" 
+                  className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 hover:scale-110 transition-all duration-1000 ease-in-out"
                 />
+                
+                {/* Floating Tool Labels */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-black/80 to-transparent">
+                   <div className="flex gap-2">
+                      <span className="text-[10px] px-2 py-1 bg-white/10 backdrop-blur-md rounded border border-white/20">Illustrator</span>
+                      <span className="text-[10px] px-2 py-1 bg-white/10 backdrop-blur-md rounded border border-white/20">Photoshop</span>
+                   </div>
+                </div>
               </div>
 
-              {/* Decorative Elements dengan warna dinamis */}
+              {/* Decorative Geometric Elements */}
               <div 
-                style={{ borderTopColor: theme.primary, borderLeftColor: theme.primary }}
-                className="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 rounded-tl-3xl z-0 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform duration-500"
+                className="absolute -top-10 -right-10 w-32 h-32 border border-dashed rounded-full animate-spin-slow opacity-20"
+                style={{ borderColor: theme.primary }}
               ></div>
               <div 
-                style={{ backgroundColor: theme.primary }}
-                className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full -z-10 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"
-              ></div>
+                className="absolute -bottom-8 -left-8 flex gap-1"
+              >
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="w-12 h-12 border" style={{ borderColor: `${theme.primary}40`, backgroundColor: i === 1 ? theme.primary : 'transparent' }}></div>
+                ))}
+              </div>
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* Vertical Indicator */}
-      <div className="absolute left-8 bottom-12 hidden lg:flex items-center gap-4 origin-left -rotate-90">
-         <span style={{ color: `${theme.primary}40` }} className="font-mono text-[10px] uppercase tracking-[0.4em]">
-           {theme.label} / 2026
+      {/* Designer Side Label */}
+      <div className="absolute left-8 bottom-12 hidden lg:flex items-center gap-6 origin-left -rotate-90">
+         <span style={{ color: `${theme.primary}` }} className="font-mono text-[10px] uppercase tracking-[0.5em] font-bold">
+           Creative Director / {new Date().getFullYear()}
          </span>
-         <div className="w-16 h-px" style={{ backgroundColor: `${theme.primary}20` }}></div>
+         <div className="w-24 h-[1px]" style={{ backgroundColor: `${theme.primary}30` }}></div>
       </div>
 
-      {/* Scroll Hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
-        <span className="font-mono text-[9px] uppercase tracking-[0.5em]">Scroll</span>
-        <div 
-          className="w-px h-12 bg-linear-to-b from-transparent via-white to-transparent"
-          style={{ backgroundImage: `linear-gradient(to bottom, ${theme.primary}, transparent)` }}
-        ></div>
+      {/* Design Grid Hint */}
+      <div className="absolute right-12 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-10 opacity-20">
+        <PenTool size={18} />
+        <Layers size={18} />
+        <Sparkles size={18} />
       </div>
+
+      {/* Scroll Indicator Custom */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+        <div className="w-[1px] h-16 overflow-hidden bg-white/10 relative">
+          <div 
+            className="absolute top-0 left-0 w-full h-1/2 bg-white"
+            style={{ 
+              animation: 'scroll-line 2s cubic-bezier(0.65, 0, 0.35, 1) infinite',
+              backgroundColor: theme.primary 
+            }}
+          ></div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes scroll-line {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(200%); }
+        }
+        .animate-spin-slow {
+          animation: spin 12s linear infinite;
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   );
 };

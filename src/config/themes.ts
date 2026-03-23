@@ -30,5 +30,12 @@ export const themes: Record<string, Theme> = {
     accent: "var(--accent)",
     label: "Motion & Visual",
     tagline: "Narrative Video Specialist"
-  }
+  },
+  architecture: {
+    primary: "#fbbf24",
+    bg: "#1a202c",
+    secondary: "#f7fafc",
+    label: "Architectural Firm",
+    tagline: "Sustainable Design & Planning"
+  },
 };

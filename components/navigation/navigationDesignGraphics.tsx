@@ -53,7 +53,7 @@ export default function Navigation() {
           </div>
           <div className="flex flex-col">
             <span className="text-lg font-black tracking-tighter leading-none uppercase">Siti Rahma</span>
-            <span className="text-[9px] font-mono tracking-[0.3em] text-[#4ade80] uppercase">Visual Architect</span>
+            <span className="text-[9px] font-mono tracking-[0.3em] text-[#4ade80] uppercase">Design Graphics</span>
           </div>
         </div>
 
