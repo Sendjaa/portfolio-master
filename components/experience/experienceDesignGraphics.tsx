@@ -39,7 +39,7 @@ export default function Experience() {
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none text-zinc-900">
             Exp<span className="text-zinc-400 italic font-serif lowercase font-light">erience</span>
           </h2>
-          <div className="h-[1px] flex-grow bg-zinc-200 mt-4"></div>
+          <div className="h-px grow bg-zinc-200 mt-4"></div>
         </div>
 
         {/* Timeline Container */}
@@ -50,7 +50,7 @@ export default function Experience() {
               className="relative pl-10 pb-20 last:pb-0 group"
             >
               {/* Dot Indikator Timeline - Hitam Minimalis */}
-              <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#F9F9F8] border-2 border-zinc-300 group-hover:border-zinc-900 group-hover:bg-zinc-900 transition-all duration-500" />
+              <div className="absolute -left-2.25 top-2 w-4 h-4 rounded-full bg-[#F9F9F8] border-2 border-zinc-300 group-hover:border-zinc-900 group-hover:bg-zinc-900 transition-all duration-500" />
 
               <div className="grid md:grid-cols-4 gap-4 md:gap-12">
                 

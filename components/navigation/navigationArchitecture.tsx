@@ -64,7 +64,7 @@ export default function Navigation() {
                 className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400 hover:text-zinc-900 transition-colors relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-zinc-900 group-hover:w-full transition-all duration-500"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-zinc-900 group-hover:w-full transition-all duration-500"></span>
               </button>
             ))}
           </div>

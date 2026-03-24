@@ -67,7 +67,7 @@ export default function ArchitecturePage() {
             className="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
           >
             {/* Project Image */}
-            <div className="md:col-span-7 relative aspect-[16/10] overflow-hidden bg-zinc-200">
+            <div className="md:col-span-7 relative aspect-16/10 overflow-hidden bg-zinc-200">
               <motion.img 
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 1.2, ease: "circOut" }}

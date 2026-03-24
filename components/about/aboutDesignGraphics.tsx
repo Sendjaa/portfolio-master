@@ -19,7 +19,7 @@ export default function About() {
           <div className="md:col-span-5 order-2 md:order-1">
             <div className="relative group">
               {/* Main Image Frame - Desain lebih clean tanpa border tebal */}
-              <div className="relative z-10 aspect-[3/4] overflow-hidden rounded-sm shadow-2xl transition-all duration-700 group-hover:shadow-indigo-500/10">
+              <div className="relative z-10 aspect-3/4 overflow-hidden rounded-sm shadow-2xl transition-all duration-700 group-hover:shadow-indigo-500/10">
                 <img
                   src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop"
                   alt="Muhammad Alfito - Graphic Designer"

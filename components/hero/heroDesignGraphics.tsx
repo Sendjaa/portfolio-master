@@ -38,7 +38,7 @@ export const HeroDesignGraphics = ({ theme }: { theme: Theme }) => {
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
       
       <div 
-        className="absolute w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none transition-transform duration-1000 ease-out opacity-20"
+        className="absolute w-150 h-150 rounded-full blur-[120px] pointer-events-none transition-transform duration-1000 ease-out opacity-20"
         style={{ 
           backgroundColor: theme.primary,
           transform: `translate(${(mousePos.x - 800) * 0.07}px, ${(mousePos.y - 400) * 0.07}px)` 
@@ -110,7 +110,7 @@ export const HeroDesignGraphics = ({ theme }: { theme: Theme }) => {
               {/* Frame Artistik */}
               <div 
                 style={{ borderColor: `${theme.primary}20` }}
-                className="relative z-10 aspect-[3/4] overflow-hidden border bg-zinc-900 shadow-[30px_30px_0px_-1px_rgba(255,255,255,0.02)]"
+                className="relative z-10 aspect-3/4 overflow-hidden border bg-zinc-900 shadow-[30px_30px_0px_-1px_rgba(255,255,255,0.02)]"
               >
                 <img 
                   src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop" 
@@ -119,7 +119,7 @@ export const HeroDesignGraphics = ({ theme }: { theme: Theme }) => {
                 />
                 
                 {/* Floating Tool Labels */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-t from-black/80 to-transparent">
+                <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-t from-black/80 to-transparent">
                    <div className="flex gap-2">
                       <span className="text-[10px] px-2 py-1 bg-white/10 backdrop-blur-md rounded border border-white/20">Illustrator</span>
                       <span className="text-[10px] px-2 py-1 bg-white/10 backdrop-blur-md rounded border border-white/20">Photoshop</span>
@@ -150,7 +150,7 @@ export const HeroDesignGraphics = ({ theme }: { theme: Theme }) => {
          <span style={{ color: `${theme.primary}` }} className="font-mono text-[10px] uppercase tracking-[0.5em] font-bold">
            Creative Director / {new Date().getFullYear()}
          </span>
-         <div className="w-24 h-[1px]" style={{ backgroundColor: `${theme.primary}30` }}></div>
+         <div className="w-24 h-px" style={{ backgroundColor: `${theme.primary}30` }}></div>
       </div>
 
       {/* Design Grid Hint */}
@@ -162,7 +162,7 @@ export const HeroDesignGraphics = ({ theme }: { theme: Theme }) => {
 
       {/* Scroll Indicator Custom */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-        <div className="w-[1px] h-16 overflow-hidden bg-white/10 relative">
+        <div className="w-px h-16 overflow-hidden bg-white/10 relative">
           <div 
             className="absolute top-0 left-0 w-full h-1/2 bg-white"
             style={{ 

@@ -98,7 +98,7 @@ export default function ExecutedProjects() {
 
               {/* Image Preview */}
               <div className="md:col-span-6 order-1 md:order-0">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-zinc-200 shadow-xl group-hover:shadow-2xl transition-all duration-1000">
+                <div className="relative aspect-4/3 overflow-hidden rounded-sm bg-zinc-200 shadow-xl group-hover:shadow-2xl transition-all duration-1000">
                   <img 
                     src={item.image} 
                     alt={item.title}

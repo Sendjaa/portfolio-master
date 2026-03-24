@@ -10,7 +10,7 @@ export const Navigation = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-[100] transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 w-full z-100 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <span className="text-2xl font-black tracking-tighter">M<span className="text-[#4ade80]">.</span>MEDIA</span>
         <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">

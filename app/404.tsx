@@ -41,7 +41,7 @@ export default function NotFound() {
         </motion.div>
 
         {/* Message */}
-        <div className="max-w-md mt-[-2rem] md:mt-[-4rem] space-y-6">
+        <div className="max-w-md -mt-8 md:-mt-16 space-y-6">
           <p className="font-mono text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-white/40 leading-relaxed">
             Halaman yang Anda cari telah dipindahkan, dihapus, atau tidak pernah ada dalam arsitektur sistem ini.
           </p>
@@ -65,7 +65,7 @@ export default function NotFound() {
       </main>
 
       {/* --- DECORATIVE TERMINAL FOOTER --- */}
-      <div className="absolute bottom-12 w-full px-10 flex justify-between items-end opacity-20 hidden md:flex">
+      <div className="absolute bottom-12 w-full px-10 flex justify-between items-end opacity-20 md:flex">
         <div className="font-mono text-[9px] space-y-1">
           <p className="flex items-center gap-2 text-[#4ade80]"><Terminal size={10}/> {`> status: disconnected`}</p>
           <p>{`> location: bandung_west_java`}</p>

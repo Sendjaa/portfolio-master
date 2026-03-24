@@ -40,7 +40,7 @@ export default function Certificates() {
         {/* Header: Editorial & Minimalist */}
         <div className="mb-24 space-y-6">
           <div className="flex items-center gap-3">
-            <div className="h-[1px] w-10 bg-zinc-300"></div>
+            <div className="h-px w-10 bg-zinc-300"></div>
             <span className="font-mono text-[10px] uppercase tracking-[0.4em] font-bold text-zinc-400">Credentials — 03</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.8]">
@@ -57,7 +57,7 @@ export default function Certificates() {
               className="group relative bg-white border border-zinc-200 p-5 md:p-8 rounded-sm flex flex-col md:flex-row items-center gap-10 hover:border-zinc-900 transition-all duration-700 hover:shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.05)]"
             >
               {/* Thumbnail Image: Grayscale to Color */}
-              <div className="w-full md:w-56 h-36 flex-shrink-0 overflow-hidden bg-zinc-100 rounded-sm">
+              <div className="w-full md:w-56 h-36 shrink-0 overflow-hidden bg-zinc-100 rounded-sm">
                 <img 
                   src={cert.image} 
                   alt={cert.title} 
@@ -66,7 +66,7 @@ export default function Certificates() {
               </div>
 
               {/* Info: Balanced Hierarchy */}
-              <div className="flex-grow space-y-3">
+              <div className="grow space-y-3">
                 <div className="flex items-center gap-4">
                   <span className="text-[10px] font-mono font-bold text-zinc-400 uppercase tracking-widest border border-zinc-100 px-2 py-0.5">
                     {cert.year}
@@ -85,7 +85,7 @@ export default function Certificates() {
               </div>
 
               {/* Action: Minimalist Verify Link */}
-              <div className="flex-shrink-0 pt-4 md:pt-0">
+              <div className="shrink-0 pt-4 md:pt-0">
                 <a 
                   href="#" 
                   className="group/link inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-900"

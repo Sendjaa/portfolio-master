@@ -17,7 +17,7 @@ export default function Navigation() {
   }, []);
 
   // Fungsi Scroll Halus ke Section ID
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -67,7 +67,7 @@ export default function Navigation() {
                 className="text-sm font-bold uppercase tracking-widest hover:text-[#4ade80] transition-colors relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#4ade80] group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#4ade80] group-hover:w-full transition-all duration-300"></span>
               </button>
             ))}
           </div>
