@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { categoryData} from '@/src/data/category';
+import { categoryData } from '@/src/data/category'; 
 import CategoryDetail from '@/components/category/category_detail';
 
 import { 
@@ -12,49 +12,80 @@ import {
   Paintbrush, 
   ShieldCheck, 
   Code2, 
-  Camera
+  Camera,
+  ArrowUpRight,
+  MonitorCog,
+  PenTool,
+  TrendingUp,
+  Briefcase
 } from 'lucide-react';
 
-const CategoryDetailInternal = ({ categoryId, onBack }: { categoryId: string; onBack: () => void }) => {
-  const data = categoryData[categoryId] || categoryData.spatial;
-  const IconComponent = data.icon;
+// --- DATA KATEGORI LOKAL ---
+const portfolioCategories = [
+  { id: "spatial", title: "Spatial Architecture", icon: <Ruler className="w-4 h-4" />, color: "#94a3b8" },
+  { id: "visual", title: "Visual Arts", icon: <Paintbrush className="w-4 h-4" />, color: "#f87171" },
+  { id: "digital", title: "Digital Design", icon: <MonitorCog className="w-4 h-4" />, color: "#facc15" },
+  { id: "system", title: "System Core", icon: <Code2 className="w-4 h-4" />, color: "#3b82f6" },
+  { id: "photo", title: "Lens Photography", icon: <Camera className="w-4 h-4" />, color: "#a855f7" },
+  { id: "writing", title: "Content Writing", icon: <PenTool className="w-4 h-4" />, color: "#fb923c" },
+  { id: "marketing", title: "Growth Marketing", icon: <TrendingUp className="w-4 h-4" />, color: "#4ade80" },
+  { id: "business", title: "Business Admin", icon: <Briefcase className="w-4 h-4" />, color: "#2dd4bf" }
+];
+
+// --- SUB-KOMPONEN CARD ---
+const MiniCategoryCard = ({ category, onSelect }: { category: any, onSelect: (id: string) => void }) => {
+  // Ambil count real dari data/category.js jika tersedia
+  const projectCount = categoryData[category.id]?.projects?.length || 0;
 
   return (
-     <CategoryDetail />
+    <motion.div
+      whileHover={{ scale: 1.02, backgroundColor: "rgba(39, 39, 42, 0.8)" }}
+      whileTap={{ scale: 0.98 }}
+      onClick={() => onSelect(category.id)}
+      className="relative group overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/5 p-4 sm:p-5 transition-all duration-300 cursor-pointer"
+    >
+      <div className="flex items-center justify-between gap-3 sm:gap-4">
+        <div className="flex items-center gap-3 min-w-0">
+          <div 
+            className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center border border-white/5 backdrop-blur-sm"
+            style={{ backgroundColor: `${category.color}15`, color: category.color }}
+          >
+            {category.icon}
+          </div>
+          <div className="min-w-0">
+            <h3 className="text-[10px] sm:text-[11px] font-black uppercase tracking-tight leading-tight text-white/90 truncate sm:whitespace-normal">
+              {category.title.split(' ')[0]} <br className="hidden sm:block"/>
+              <span className="text-white/40">{category.title.split(' ').slice(1).join(' ')}</span>
+            </h3>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-end shrink-0">
+          <span className="font-mono text-[9px] text-[#4ade80] font-bold mb-1">
+            {projectCount}
+          </span>
+          <div className="text-white/20 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
+            <ArrowUpRight size={12} />
+          </div>
+        </div>
+      </div>
+      <div 
+        className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500 hidden sm:block"
+        style={{ backgroundColor: category.color }}
+      />
+    </motion.div>
   );
 };
 
-const PortfolioCategoriesInternal = ({ onSelect }: { onSelect: (id: string) => void }) => {
-  const categories = [
-    { id: "spatial", title: "Spatial", sub: "Architecture", icon: Ruler, color: "#94a3b8" },
-    { id: "visual", title: "Visual", sub: "Arts", icon: Paintbrush, color: "#f87171" },
-    { id: "system", title: "System", sub: "Core", icon: Code2, color: "#3b82f6" },
-    { id: "photo", title: "Lens", sub: "Photo", icon: Camera, color: "#a855f7" },
-  ];
-
+// --- WRAPPER UNTUK DETAIL ---
+const CategoryDetailInternal = ({ categoryId, onBack }: { categoryId: string; onBack: () => void }) => {
+  const data = categoryData[categoryId] || categoryData.spatial;
+  
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {categories.map((cat) => (
-        <motion.div
-          key={cat.id}
-          whileHover={{ y: -5 }}
-          onClick={() => onSelect(cat.id)}
-          className="group relative p-8 bg-zinc-900/30 border border-white/5 rounded-4xl hover:border-white/20 transition-all cursor-pointer overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition-opacity" style={{ color: cat.color }}>
-            <cat.icon size={40} />
-          </div>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-white/20 group-hover:text-white/60 transition-colors">Sector_{cat.id}</span>
-          <h3 className="text-3xl font-black uppercase tracking-tighter mt-4 leading-none">
-            {cat.title} <br/>
-            <span className="text-transparent [-webkit-text-stroke:1px_white] opacity-40">{cat.sub}</span>
-          </h3>
-          <div className="mt-8 flex items-center gap-2 text-[9px] font-mono uppercase tracking-[0.3em] text-[#4ade80] opacity-0 group-hover:opacity-100 transition-all">
-            View_Projects <ArrowRight size={12} />
-          </div>
-        </motion.div>
-      ))}
-    </div>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        {/* Mengirimkan data kategori ke komponen detail */}
+       <CategoryDetail categoryId={categoryId} />
+    </motion.div>
   );
 };
 
@@ -63,7 +94,7 @@ export default function EntryPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', project: '' });
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  
   const [activeTab, setActiveTab] = useState('home');
   const [selectedId, setSelectedId] = useState('');
 
@@ -99,13 +130,13 @@ export default function EntryPage() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const handleTabClick = (id: React.SetStateAction<string>) => { 
+  const handleTabClick = (id: string) => { 
     setSelectedId(id);
     setActiveTab("detail");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  const handleWhatsApp = (e: { preventDefault: () => void; }) => {
+  const handleWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
     const target = "6289509162484";
     const message = `Halo Senja Dev! Saya ${formData.name}.%0A%0A*Project:* ${formData.project}`;
@@ -113,7 +144,7 @@ export default function EntryPage() {
     setIsModalOpen(false);
   };
 
-  // Toggle View
+
   if (activeTab === 'detail') {
     return <CategoryDetailInternal categoryId={selectedId} onBack={() => setActiveTab('home')} />;
   }
@@ -180,17 +211,15 @@ export default function EntryPage() {
           opacity: isScrolled ? 1 : 0,
           pointerEvents: isScrolled ? "auto" : "none"
         }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} // Ease yang lebih smooth
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 w-full z-100 backdrop-blur-md bg-black/40 border-b border-white/5"
       > 
         <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-          {/* Logo dengan animasi hover sederhana */}
           <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 hover:text-[#4ade80] transition-colors cursor-default">
             SENJA_DEV
           </span>
 
           <div className="flex items-center gap-10">
-            {/* Nav Link dengan font mono agar konsisten */}
             {['Home', 'Works'].map((item) => (
               <a 
                 key={item}
@@ -200,15 +229,12 @@ export default function EntryPage() {
                 {item}
               </a>
             ))}
-
-            {/* Button CTA yang lebih tegas */}
-            <a 
+            <button 
               onClick={() => setIsModalOpen(true)}
-              href="#contact" 
               className="px-5 py-2 rounded-full border border-white/10 font-mono text-[9px] uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300"
             >
               Start_Project
-            </a> 
+            </button> 
           </div>
         </div>
       </motion.nav>
@@ -216,13 +242,18 @@ export default function EntryPage() {
       {/* --- MAIN CONTENT --- */}
       <main className="py-20 md:py-32 px-6 lg:px-10 max-w-7xl mx-auto space-y-32">
         
-        {/* Portfolio Categories */}
-        <section>
-           <div className="mb-12 space-y-4">
-              <span className="font-mono text-[#4ade80] text-[10px] uppercase tracking-[0.5em] block">Explore_Work</span>
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Pilih <span className="italic font-serif text-[#3b82f6]">Kategori.</span></h2>
-           </div>
-           <PortfolioCategoriesInternal onSelect={handleTabClick} />
+        {/* Portfolio Categories Terintegrasi */}
+        <section id="works" className="space-y-12">
+          <div className="space-y-4">
+            <span className="font-mono text-[#4ade80] text-[10px] uppercase tracking-[0.5em] block">Portfolio_Grid</span>
+            <h4 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Pilih <span className="italic font-serif text-[#3b82f6]">Kategori.</span></h4>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {portfolioCategories.map((cat) => (
+              <MiniCategoryCard key={cat.id} category={cat} onSelect={handleTabClick} />
+            ))}
+          </div>
         </section>
 
         {/* Workflow Section */}
@@ -230,7 +261,6 @@ export default function EntryPage() {
           <div className="space-y-4">
             <span className="font-mono text-[#4ade80] text-[10px] uppercase tracking-[0.5em] block">The_Process</span>
             <h4 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Cara Kami <span className="italic font-serif text-[#3b82f6]">Bekerja.</span></h4>
-
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -249,7 +279,7 @@ export default function EntryPage() {
           </div>
         </section>
 
-        {/* Special Limited Offer */}
+        {/* Early Bird Offer */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -262,12 +292,12 @@ export default function EntryPage() {
               <span className="font-mono text-[9px] uppercase tracking-widest text-[#4ade80]">Slot Terbatas: 5 Orang</span>
             </div>
             <h4 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">Early Bird <br/> <span className="text-transparent [-webkit-text-stroke:1px_white]">Special.</span></h4>
-            <p className="font-mono text-xs text-white/60 uppercase tracking-widest">Hanya Rp 50.000 untuk 5 pelanggan pertama.</p>
+            <p className="font-mono text-xs text-white/60 uppercase tracking-widest">Dapatkan harga spesial untuk 5 pelanggan pertama.</p>
           </div>
 
           <div className="relative z-10 text-center lg:text-right">
             <div className="mb-8">
-              <span className="text-white/30 line-through text-xl font-mono block">Rp 100.000</span>
+              <span className="text-white/30 line-through text-xl font-mono block text-right">Rp 100.000</span>
               <span className="text-6xl md:text-8xl font-black text-[#4ade80] block">Rp 50rb</span>
             </div>
             <button 
@@ -283,14 +313,14 @@ export default function EntryPage() {
         <footer className="pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] font-mono text-white/20 uppercase tracking-[0.4em]">
           <p>© 2026 SENJA DEV — PROTECTED BY SYSTEM</p>
           <div className="flex gap-8">
-            <a href="https://www.instagram.com/sendjaaaa_" className="hover:text-white transition-colors">Instagram</a>
-            <a href="https://www.github.com/Sendjaa" className="hover:text-white transition-colors">Github</a>
-            <a href="https://www.linkedin.com/in/senja" className="hover:text-white transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/sendjaaaa_" target="_blank" className="hover:text-white transition-colors">Instagram</a>
+            <a href="https://www.github.com/Sendjaa" target="_blank" className="hover:text-white transition-colors">Github</a>
+            <a href="https://www.linkedin.com/in/senja" target="_blank" className="hover:text-white transition-colors">LinkedIn</a>
           </div>
         </footer>
       </main>
 
-      {/* --- MODAL --- */}
+      {/* --- MODAL FORM --- */}
       <AnimatePresence>
         {isModalOpen && (
           <div className="fixed inset-0 z-110 flex items-center justify-center p-4">

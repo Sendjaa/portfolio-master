@@ -64,7 +64,7 @@ export default function Certificates() {
                   className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-in-out"
                 />
               </div>
-
+            
               {/* Info: Balanced Hierarchy */}
               <div className="grow space-y-3">
                 <div className="flex items-center gap-4">

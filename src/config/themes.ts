@@ -38,4 +38,39 @@ export const themes: Record<string, Theme> = {
     label: "Architectural Firm",
     tagline: "Sustainable Design & Planning"
   },
+  general: {
+    primary: "#6b7280",
+    bg: "#f9fafb",
+    secondary: "#374151",
+    label: "General Portfolio",
+    tagline: "Diverse Creative Works"
+  },
+  general2: {
+    primary: "#6b7280",
+    bg: "#f9fafb",  
+    secondary: "#374151",
+    label: "General Portfolio",
+    tagline: "Diverse Creative Works"
+  },
+  generl3: {
+    primary: "#6b7280",
+    bg: "#f9fafb",
+    secondary: "#374151",
+    label: "General Portfolio",
+    tagline: "Diverse Creative Works"
+  },
+  general4: {
+    primary: "#6b7280",
+    bg: "#f9fafb",
+    secondary: "#374151",
+    label: "General Portfolio",
+    tagline: "Diverse Creative Works"
+  },
+  general5: {
+    primary: "#6b7280",
+    bg: "#f9fafb",
+    secondary: "#374151",
+    label: "General Portfolio",
+    tagline: "Diverse Creative Works"
+  },
 };
