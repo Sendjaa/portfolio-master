@@ -95,7 +95,7 @@ export default function EntryPage() {
       title: "Soft",
       sub: "Engineer",
       desc: "Membangun ekosistem digital yang tak hanya berfungsi sempurna, tapi juga memikat mata.",
-      video: "/videos/engineer-bg.mp4", 
+      video: "/video_background.mp4", 
     },
     {
       title: "Wujudkan",
