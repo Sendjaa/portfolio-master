@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { categoryData } from '@/src/data/category'; 
 import CategoryDetail from '@/components/category/category_detail';
+import CategoryPortfolio from '@/components/category/categoryPortfolio';
 
 import { 
   ArrowRight, 
@@ -21,21 +22,11 @@ import {
   Menu
 } from 'lucide-react';
 
-// --- DATA KATEGORI LOKAL ---
-const portfolioCategories = [
-  { id: "spatial", title: "Spatial Architecture", icon: <Ruler className="w-4 h-4" />, color: "#94a3b8" },
-  { id: "visual", title: "Visual Arts", icon: <Paintbrush className="w-4 h-4" />, color: "#f87171" },
-  { id: "digital", title: "Digital Design", icon: <MonitorCog className="w-4 h-4" />, color: "#facc15" },
-  { id: "system", title: "System Core", icon: <Code2 className="w-4 h-4" />, color: "#3b82f6" },
-  { id: "photo", title: "Lens Photography", icon: <Camera className="w-4 h-4" />, color: "#a855f7" },
-  { id: "writing", title: "Content Writing", icon: <PenTool className="w-4 h-4" />, color: "#fb923c" },
-  { id: "marketing", title: "Growth Marketing", icon: <TrendingUp className="w-4 h-4" />, color: "#4ade80" },
-  { id: "business", title: "Business Admin", icon: <Briefcase className="w-4 h-4" />, color: "#2dd4bf" }
-];
+
 
 // --- SUB-KOMPONEN CARD ---
 const MiniCategoryCard = ({ category, onSelect }: { category: any, onSelect: (id: string) => void }) => {
-  // Ambil count real dari data/category.js jika tersedia
+
   const projectCount = categoryData[category.id]?.projects?.length || 0;
 
   return (
@@ -79,13 +70,13 @@ const MiniCategoryCard = ({ category, onSelect }: { category: any, onSelect: (id
 };
 
 // --- WRAPPER UNTUK DETAIL ---
-const CategoryDetailInternal = ({ categoryId, onBack }: { categoryId: string; onBack: () => void }) => {
-  const data = categoryData[categoryId] || categoryData.spatial;
+const CategoryDetailInternal = ({ categoryId, onBack }: { categoryId: string | null; onBack: () => void }) => {
+  const data = categoryId ? (categoryData[categoryId] || categoryData.spatial) : categoryData.spatial;
   
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         {/* Mengirimkan data kategori ke komponen detail */}
-       <CategoryDetail categoryId={categoryId} />
+       <CategoryDetail categoryId={categoryId || "spatial"} />
     </motion.div>
   );
 };
@@ -97,7 +88,7 @@ export default function EntryPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
-  const [selectedId, setSelectedId] = useState('');
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const slides = [
     {
@@ -133,8 +124,7 @@ export default function EntryPage() {
 
   const handleTabClick = (id: string) => { 
     setSelectedId(id);
-    setActiveTab("detail");
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    // window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleWhatsApp = (e: React.FormEvent) => {
@@ -213,7 +203,7 @@ export default function EntryPage() {
             pointerEvents: isScrolled ? "auto" : "none"
           }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed top-0 left-0 w-full z-[100] backdrop-blur-md bg-black/40 border-b border-white/5"
+          className="fixed top-0 left-0 w-full z-100 backdrop-blur-md bg-black/40 border-b border-white/5"
         > 
           <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-5 flex items-center justify-between">
             <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 hover:text-[#4ade80] transition-colors cursor-default">
@@ -276,21 +266,25 @@ export default function EntryPage() {
         </motion.nav>
 
       {/* --- MAIN CONTENT --- */}
-      <main className="py-20 md:py-32 px-6 lg:px-10 max-w-7xl mx-auto space-y-32">
+      <main className="px-6 lg:px-10 max-w-7xl mx-auto space-y-32">
         
         {/* Portfolio Categories Terintegrasi */}
         <section id="works" className="space-y-12">
-          <div className="space-y-4">
-            <span className="font-mono text-[#4ade80] text-[10px] uppercase tracking-[0.5em] block">Portfolio_Kategori</span>
-            <h4 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Pilih <span className="italic font-serif text-[#3b82f6]">Kategori.</span></h4>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {portfolioCategories.map((cat) => (
-              <MiniCategoryCard key={cat.id} category={cat} onSelect={handleTabClick} />
-            ))}
-          </div>
+          <CategoryPortfolio />
         </section>
+
+        <AnimatePresence>
+          {selectedId && (
+            <motion.div
+              key="category-detail"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <CategoryDetail categoryId={selectedId} onBack={() => setSelectedId(null)} />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Workflow Section */}
         <section className="space-y-12">

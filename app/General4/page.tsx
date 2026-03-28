@@ -75,7 +75,7 @@ export default function CreativeDirectorPortfolio(): JSX.Element {
                 <p className={`text-[10px] uppercase tracking-[0.3em] font-bold ${muted}`}>
                   Spesialisasi dalam Luxury Branding, Fashion Editorial, & Digital Storytelling.
                 </p>
-                <div className={`h-[1px] w-full ${isDark ? 'bg-white/20' : 'bg-black/10'}`} />
+                <div className={`h-1px w-full ${isDark ? 'bg-white/20' : 'bg-black/10'}`} />
                 <div className="flex justify-between items-center group cursor-pointer text-[10px] font-bold uppercase tracking-widest">
                   <span>View Selected Works</span>
                   <ArrowRight size={14} className="group-hover:translate-x-3 transition-transform duration-500" />
@@ -101,7 +101,7 @@ export default function CreativeDirectorPortfolio(): JSX.Element {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
               >
-                <div className="overflow-hidden bg-neutral-200 mb-8 aspect-[3/4]">
+                <div className="overflow-hidden bg-neutral-200 mb-8 aspect-3/4">
                   <img 
                     src={item.img} 
                     alt={item.title} 

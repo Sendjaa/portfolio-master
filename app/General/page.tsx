@@ -93,7 +93,7 @@ export default function CreativePortfolio() {
                 {/* --- KOLOM KANAN: FOTO PROFIL (Isi 5 dari 12 kolom desktop) --- */}
                 <div className="md:col-span-5 order-1 md:order-2 flex justify-center md:justify-end">
                 {/* Container Foto dengan Aspek Rasio Portrait dan Sudut Melengkung Besar */}
-                <div className="relative w-full max-w-sm md:max-w-none aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl border border-white/5">
+                <div className="relative w-full max-w-sm md:max-w-none aspect-3/4 rounded-[3rem] overflow-hidden shadow-2xl border border-white/5">
                     {/* Dekorasi Latar Belakang Halus */}
                     <div className={`absolute inset-0 ${darkMode ? 'bg-indigo-950' : 'bg-indigo-50'} z-0`} />
                     
@@ -107,7 +107,7 @@ export default function CreativePortfolio() {
                     />
                     
                     {/* Overlay Gradasi Halus di Atas Foto */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/30 to-transparent z-20" />
+                    <div className="absolute inset-0 bg-linear-to-t from-indigo-950/30 to-transparent z-20" />
                 </div>
                 </div>
             </motion.div>
@@ -142,7 +142,7 @@ export default function CreativePortfolio() {
               </div>
 
               {/* Tools/Medium Card */}
-              <div className={`p-10 rounded-[3rem] ${darkMode ? 'bg-gradient-to-b from-indigo-900/20 to-stone-900' : 'bg-indigo-50'} border ${borderColor}`}>
+              <div className={`p-10 rounded-[3rem] ${darkMode ? 'bg-linear-to-b from-indigo-900/20 to-stone-900' : 'bg-indigo-50'} border ${borderColor}`}>
                 <Palette className={accentColor} size={32} />
                 <h3 className="text-2xl font-light italic font-serif mt-6 mb-6">Medium</h3>
                 <ul className={`space-y-4 text-sm font-medium ${subTextColor}`}>
@@ -185,7 +185,7 @@ export default function CreativePortfolio() {
                   whileHover={{ scale: 0.98 }}
                   className="group cursor-pointer"
                 >
-                  <div className={`aspect-[4/5] rounded-[3rem] ${darkMode ? 'bg-stone-800' : 'bg-stone-200'} mb-8 overflow-hidden relative shadow-2xl group`}>
+                  <div className={`aspect-4/5 rounded-[3rem] ${darkMode ? 'bg-stone-800' : 'bg-stone-200'} mb-8 overflow-hidden relative shadow-2xl group`}>
                     {/* Overlay Warna saat Hover */}
                     <div className="absolute inset-0 bg-indigo-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 backdrop-blur-[2px] flex items-center justify-center">
                         <span className="bg-white text-black px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">

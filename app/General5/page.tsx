@@ -65,7 +65,7 @@ export default function IndustrialArchitectPortfolio(): JSX.Element {
           {isMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-              className={`fixed inset-0 z-[49] ${bg} pt-32 px-10 flex flex-col gap-8 font-sans uppercase font-black text-4xl tracking-tighter`}
+              className={`fixed inset-0 z-49 ${bg} pt-32 px-10 flex flex-col gap-8 font-sans uppercase font-black text-4xl tracking-tighter`}
             >
               <a href="#edu" onClick={() => setIsMenuOpen(false)}>Education</a>
               <a href="#projects" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
@@ -81,7 +81,7 @@ export default function IndustrialArchitectPortfolio(): JSX.Element {
             <div className="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
                 <div className="flex items-center gap-4 mb-8">
-                  <div className={`h-[1px] w-12 ${isDark ? 'bg-white/20' : 'bg-black/20'}`} />
+                  <div className={`h-1px w-12 ${isDark ? 'bg-white/20' : 'bg-black/20'}`} />
                   <span className={`font-sans text-[10px] font-bold uppercase tracking-[0.5em] ${accent}`}>Principal Architect</span>
                 </div>
                 <h1 className="text-5xl md:text-[7vw] leading-[0.95] font-bold tracking-tighter uppercase mb-10">
@@ -103,7 +103,7 @@ export default function IndustrialArchitectPortfolio(): JSX.Element {
             <div className="lg:col-span-5 order-1 lg:order-2">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}
-                className="relative aspect-[4/5] bg-neutral-800 overflow-hidden group shadow-2xl"
+                className="relative aspect-4/5 bg-neutral-800 overflow-hidden group shadow-2xl"
               >
                 <img 
                   src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800" 

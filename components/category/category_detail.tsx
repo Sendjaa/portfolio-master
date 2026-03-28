@@ -127,15 +127,7 @@ export default function CategoryDetail({ categoryId = "spatial" }) {
                         <ExternalLink size={18} />
                     </MotionLink>
                   </div>
-
-                  <div className="pt-6 border-t border-white/5 flex flex-wrap gap-6 text-[9px] font-mono text-white/20 uppercase tracking-[0.2em]">
-                    <div className="flex items-center gap-2">
-                      <MapPin size={10} className="text-[#4ade80]" /> {project.location}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar size={10} className="text-[#4ade80]" /> {project.year}
-                    </div>
-                  </div>
+                  
                 </div>
               </motion.div>
             );
@@ -160,7 +152,7 @@ export default function CategoryDetail({ categoryId = "spatial" }) {
              <div className="absolute right-0 top-0 bottom-0 w-0 group-hover:w-12 bg-[#4ade80] flex items-center justify-center transition-all duration-300">
                <ArrowLeft size={16} className="rotate-180" />
              </div>
-           </button>
+           </button>  
         </motion.div>
         
       </div>
