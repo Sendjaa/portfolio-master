@@ -198,7 +198,7 @@ export default function EntryPage() {
             onClick={() => setIsModalOpen(true)}
             className="mx-auto flex items-center gap-3 px-8 py-4 bg-white text-black font-black uppercase text-[10px] tracking-widest rounded-full hover:bg-[#4ade80] transition-all active:scale-95"
           >
-            Start Your Project <ArrowRight size={14} />
+           Mulai Projek Pertama Anda <ArrowRight size={14} />
           </button>
         </motion.div>
 
@@ -217,7 +217,7 @@ export default function EntryPage() {
         > 
           <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-5 flex items-center justify-between">
             <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 hover:text-[#4ade80] transition-colors cursor-default">
-              SENJA_DEV
+              SOFTEngingeer
             </span>
 
             {/* --- DESKTOP MENU --- */}
@@ -235,7 +235,7 @@ export default function EntryPage() {
                 onClick={() => setIsModalOpen(true)}
                 className="px-5 py-2 rounded-full border border-white/10 font-mono text-[9px] uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300"
               >
-                Start_Project
+                Mulai_Projek
               </button> 
             </div>
 
@@ -281,7 +281,7 @@ export default function EntryPage() {
         {/* Portfolio Categories Terintegrasi */}
         <section id="works" className="space-y-12">
           <div className="space-y-4">
-            <span className="font-mono text-[#4ade80] text-[10px] uppercase tracking-[0.5em] block">Portfolio_Grid</span>
+            <span className="font-mono text-[#4ade80] text-[10px] uppercase tracking-[0.5em] block">Portfolio_Kategori</span>
             <h4 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Pilih <span className="italic font-serif text-[#3b82f6]">Kategori.</span></h4>
           </div>
 
@@ -347,7 +347,7 @@ export default function EntryPage() {
 
         {/* Footer */}
         <footer className="pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] font-mono text-white/20 uppercase tracking-[0.4em]">
-          <p>© 2026 SENJA DEV — PROTECTED BY SYSTEM</p>
+          <p>© 2026 SOFT ENGINEER — PROTECTED BY SYSTEM</p>
           <div className="flex gap-8">
             <a href="https://www.instagram.com/sendjaaaa_" target="_blank" className="hover:text-white transition-colors">Instagram</a>
             <a href="https://www.tiktok.com/@sendjaa0" target="_blank" className="hover:text-white transition-colors">TikTok</a>
