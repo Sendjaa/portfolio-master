@@ -17,7 +17,8 @@ import {
   MonitorCog,
   PenTool,
   TrendingUp,
-  Briefcase
+  Briefcase,
+  Menu
 } from 'lucide-react';
 
 // --- DATA KATEGORI LOKAL ---
@@ -94,7 +95,7 @@ export default function EntryPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', project: '' });
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
   const [selectedId, setSelectedId] = useState('');
 
@@ -204,40 +205,75 @@ export default function EntryPage() {
       </section>
 
       {/* --- FLOATING NAVBAR --- */}
-      <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ 
-          y: isScrolled ? 0 : -100, 
-          opacity: isScrolled ? 1 : 0,
-          pointerEvents: isScrolled ? "auto" : "none"
-        }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 w-full z-100 backdrop-blur-md bg-black/40 border-b border-white/5"
-      > 
-        <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-          <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 hover:text-[#4ade80] transition-colors cursor-default">
-            SENJA_DEV
-          </span>
+        <motion.nav
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ 
+            y: isScrolled ? 0 : -100, 
+            opacity: isScrolled ? 1 : 0,
+            pointerEvents: isScrolled ? "auto" : "none"
+          }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed top-0 left-0 w-full z-[100] backdrop-blur-md bg-black/40 border-b border-white/5"
+        > 
+          <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-5 flex items-center justify-between">
+            <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 hover:text-[#4ade80] transition-colors cursor-default">
+              SENJA_DEV
+            </span>
 
-          <div className="flex items-center gap-10">
-            {['Home', 'Works'].map((item) => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase()}`} 
-                className="font-mono text-[10px] uppercase tracking-widest text-white/40 hover:text-[#4ade80] transition-colors"
+            {/* --- DESKTOP MENU --- */}
+            <div className="hidden md:flex items-center gap-10">
+              {['Home', 'Works'].map((item) => (
+                <a 
+                  key={item}
+                  href={`#${item.toLowerCase()}`} 
+                  className="font-mono text-[10px] uppercase tracking-widest text-white/40 hover:text-[#4ade80] transition-colors"
+                >
+                  {item}
+                </a>
+              ))}
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="px-5 py-2 rounded-full border border-white/10 font-mono text-[9px] uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300"
               >
-                {item}
-              </a>
-            ))}
+                Start_Project
+              </button> 
+            </div>
+
+            {/* --- MOBILE HAMBURGER BUTTON --- */}
             <button 
-              onClick={() => setIsModalOpen(true)}
-              className="px-5 py-2 rounded-full border border-white/10 font-mono text-[9px] uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300"
+              className="md:hidden text-white/60 hover:text-[#4ade80] transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              Start_Project
-            </button> 
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
-        </div>
-      </motion.nav>
+
+          {/* --- MOBILE MENU OVERLAY --- */}
+          {isMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="md:hidden absolute top-full left-0 w-full bg-black/90 border-b border-white/5 p-6 flex flex-col gap-6"
+            >
+              {['Home', 'Works'].map((item) => (
+                <a 
+                  key={item}
+                  href={`#${item.toLowerCase()}`} 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="font-mono text-[12px] uppercase tracking-widest text-white/60 hover:text-[#4ade80]"
+                >
+                  {item}
+                </a>
+              ))}
+              <button 
+                onClick={() => { setIsModalOpen(true); setIsMenuOpen(false); }}
+                className="w-full py-3 rounded-full border border-white/10 font-mono text-[10px] uppercase tracking-widest text-white"
+              >
+                Start_Project
+              </button>
+            </motion.div>
+          )}
+        </motion.nav>
 
       {/* --- MAIN CONTENT --- */}
       <main className="py-20 md:py-32 px-6 lg:px-10 max-w-7xl mx-auto space-y-32">
@@ -314,6 +350,8 @@ export default function EntryPage() {
           <p>© 2026 SENJA DEV — PROTECTED BY SYSTEM</p>
           <div className="flex gap-8">
             <a href="https://www.instagram.com/sendjaaaa_" target="_blank" className="hover:text-white transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@sendjaa0" target="_blank" className="hover:text-white transition-colors">TikTok</a>
+            <a href="https://shopee.co.id/softengineer_?entryPoint=ShopBySearch&searchKeyword=softengineer_" target="_blank" className="hover:text-white transition-colors">Shopee</a>
             <a href="https://www.github.com/Sendjaa" target="_blank" className="hover:text-white transition-colors">Github</a>
             <a href="https://www.linkedin.com/in/senja" target="_blank" className="hover:text-white transition-colors">LinkedIn</a>
           </div>
