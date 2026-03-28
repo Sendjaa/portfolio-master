@@ -6,9 +6,8 @@ import Link from 'next/link';
 import { categoryData, Category } from '@/data/category';
 import { 
   ArrowLeft, 
-  ExternalLink, 
-  Calendar, 
-  MapPin 
+  ExternalLink,
+  
 } from 'lucide-react';
 
 export default function CategoryDetail({ categoryId = "spatial" }) {
@@ -127,7 +126,7 @@ export default function CategoryDetail({ categoryId = "spatial" }) {
                         <ExternalLink size={18} />
                     </MotionLink>
                   </div>
-                  
+
                 </div>
               </motion.div>
             );

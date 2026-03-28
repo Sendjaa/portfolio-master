@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { categoryData } from '@/data/category'; 
+import Image from 'next/image';
 
 import { 
   LayoutGrid, Ruler, Paintbrush, MonitorCog, Code2, 
@@ -87,13 +88,15 @@ export default function PortfolioCatalog() {
                 className="group bg-zinc-900/20 border border-white/5 rounded-[2.5rem] overflow-hidden hover:bg-zinc-900/40 transition-all duration-500"
               >
                 {/* Product Image Container */}
-                <div className="aspect-[16/10] overflow-hidden relative">
-                  <img 
+                <div className="aspect-16/10 overflow-hidden relative">
+                  <Image 
                     src={project.image} 
                     alt={project.title}
+                    fill // Mengisi seluruh area kontainer parent
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-transparent to-transparent opacity-80" />
                   
                   {/* Floating Action */}
                   <div className="absolute bottom-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">

@@ -327,8 +327,8 @@ export default function EntryPage() {
 
           <div className="relative z-10 text-center lg:text-right">
             <div className="mb-8">
-              <span className="text-white/30 line-through text-xl font-mono block text-right">Rp 100.000</span>
-              <span className="text-6xl md:text-8xl font-black text-[#4ade80] block">Rp 50rb</span>
+              <span className="text-white/30 line-through text-xl font-mono block text-right">Rp 150.000</span>
+              <span className="text-6xl md:text-8xl font-black text-[#4ade80] block">Rp 75rb</span>
             </div>
             <button 
               onClick={() => setIsModalOpen(true)}

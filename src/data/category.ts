@@ -1,20 +1,18 @@
 import { Ruler, Code2, Camera, Paintbrush, LucideIcon, LayoutGrid, MonitorCog, PenTool, TrendingUp, Briefcase } from 'lucide-react';
 
 export interface Project {
-  id: string; // Diubah ke string untuk kombinasi ID unik
+  id: string;
   title: string;
   image: string;
-  // Dibuat opsional agar tidak error saat data dihapus
-  location?: string; 
-  year?: string;
-  tags?: string[];
-  category_label?: string; // Tambahan untuk label di mode General
+  category_label?: string;
+  link?: string;
 }
 
 export interface Category {
   title: string;
   icon: LucideIcon;
   color: string;
+  link?: string;
   description: string;
   projects: Project[];
 }
@@ -29,10 +27,8 @@ export const categoryData: Record<string, Category> = {
       { 
         id: "sp-1", 
         title: "Modern Portfolio for Architects", 
-        location: "Bali", 
-        year: "2024", 
-        tags: ["Exterior"], 
         image: "/image_portfolio/spatial_image1.png",
+        link: "/projects/sp-1", 
         category_label: "Architecture"
       },
     ]
@@ -64,6 +60,44 @@ export const categoryData: Record<string, Category> = {
         category_label: "Digital Art"
       },
     ]
-  }
-  // Tambahkan kategori lain (digital, photo, dll) di sini dengan pola yang sama
+  },
+  General: {
+    title: "Gen1",
+    icon: LayoutGrid,
+    color: "#4ade80",
+    description: "Kumpulan proyek umum dan berbagai kategori.",
+    projects: [
+      {
+        id: "gen-1",
+        title: "Seniman Visual",
+        image: "/image_portfolio/Gen1.png",
+        category_label: "General",
+        link: ""
+      },
+      {
+        id: "gen-2",
+        title: "Ahli Strategi Digital",
+        image: "/image_portfolio/Gen2.png",
+        category_label: "General"
+      },
+      {
+        id: "gen-3",
+        title: "Direktur Kreatif",
+        image: "/image_portfolio/Gen3.png",
+        category_label: "General"
+      },
+      {
+        id: "Gen-4",
+        title: "Full stack Developer",
+        image: "/image_portfolio/Gen4.png",
+        category_label: "General"
+      },
+      {
+        id: "gen-5",
+        title: "Kreatif",
+        image: "/image_portfolio/Gen5.png",
+        category_label: "General"
+      },
+    ]
+  },
 };
