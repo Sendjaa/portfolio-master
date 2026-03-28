@@ -340,16 +340,43 @@ export default function EntryPage() {
         </motion.div>
 
         {/* Footer */}
-        <footer className="pt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] font-mono text-white/20 uppercase tracking-[0.4em]">
-          <p>© 2026 SOFT ENGINEER — PROTECTED BY SYSTEM</p>
-          <div className="flex gap-8">
-            <a href="https://www.instagram.com/sendjaaaa_" target="_blank" className="hover:text-white transition-colors">Instagram</a>
-            <a href="https://www.tiktok.com/@sendjaa0" target="_blank" className="hover:text-white transition-colors">TikTok</a>
-            <a href="https://shopee.co.id/softengineer_?entryPoint=ShopBySearch&searchKeyword=softengineer_" target="_blank" className="hover:text-white transition-colors">Shopee</a>
-            <a href="https://www.github.com/Sendjaa" target="_blank" className="hover:text-white transition-colors">Github</a>
-            <a href="https://www.linkedin.com/in/senja" target="_blank" className="hover:text-white transition-colors">LinkedIn</a>
+        <footer className="mt-20 pt-12 pb-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 px-4">
+        {/* Left Side: Branding & Copyright */}
+        <div className="flex flex-col items-center md:items-start gap-2">
+          <div className="flex items-center gap-2">
+            {/* <div className="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse" />
+            <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.4em]">
+              System_Operational
+            </p> */}
           </div>
-        </footer>
+          <p className="text-[9px] font-mono text-white/10 uppercase tracking-[0.2em]">
+            © 2026 <span className="text-white/20">SOFT ENGINEER™</span> — All Rights Reserved.
+          </p>
+        </div>
+
+        {/* Right Side: Social Links with Hover Animation */}
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+          {[
+            { name: "Instagram", url: "https://www.instagram.com/sendjaaaa_" },
+            { name: "TikTok", url: "https://www.tiktok.com/@sendjaa0" },
+            { name: "Shopee", url: "https://shopee.co.id/softengineer_" },
+            { name: "Github", url: "https://www.github.com/Sendjaa" },
+            { name: "LinkedIn", url: "https://www.linkedin.com/in/senja" }
+          ].map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group text-[9px] font-mono text-white/20 uppercase tracking-[0.3em] transition-colors hover:text-white"
+            >
+              {social.name}
+              {/* Animated Underline */}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#4ade80] transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
+        </div>
+      </footer>
       </main>
 
       {/* --- MODAL FORM --- */}
