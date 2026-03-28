@@ -207,7 +207,7 @@ export default function EntryPage() {
         > 
           <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-5 flex items-center justify-between">
             <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 hover:text-[#4ade80] transition-colors cursor-default">
-              SOFTEngingeer
+              SOFTEngineer
             </span>
 
             {/* --- DESKTOP MENU --- */}
