@@ -92,15 +92,15 @@ export default function EntryPage() {
 
   const slides = [
     {
-      title: "Creative",
+      title: "Soft",
       sub: "Engineer",
       desc: "Membangun ekosistem digital yang tak hanya berfungsi sempurna, tapi juga memikat mata.",
       video: "/videos/engineer-bg.mp4", 
     },
     {
-      title: "Spatial",
-      sub: "Architect",
-      desc: "Transformasi visi menjadi ruang nyata. Kami merancang arsitektur modern yang presisi.",
+      title: "Wujudkan",
+      sub: "Masa depan",
+      desc: "Bangun Portofolio Impianmu Bersama Kami.",
       video: "/202603231812.mp4",
     }
   ];

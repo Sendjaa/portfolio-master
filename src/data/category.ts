@@ -1,6 +1,7 @@
 import { Ruler, Code2, Camera, Paintbrush, LucideIcon, LayoutGrid, MonitorCog, PenTool, TrendingUp, Briefcase } from 'lucide-react';
 
 export interface Project {
+  tags: any;
   id: string;
   title: string;
   image: string;
