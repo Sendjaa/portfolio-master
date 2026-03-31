@@ -76,7 +76,7 @@ export const categoryData: Record<string, Category> = {
         title: "Seniman Visual",
         image: "/image_portfolio/Gen1.png",
         category_label: "General",
-        link: "",
+        link: "https://softengineer-dev.vercel.app/General",
         tags: undefined
       },
       {
@@ -84,6 +84,7 @@ export const categoryData: Record<string, Category> = {
         title: "Ahli Strategi Digital",
         image: "/image_portfolio/Gen2.png",
         category_label: "General",
+        link: "https://softengineer-dev.vercel.app/General2",
         tags: undefined
       },
       {
@@ -91,6 +92,7 @@ export const categoryData: Record<string, Category> = {
         title: "Direktur Kreatif",
         image: "/image_portfolio/Gen3.png",
         category_label: "General",
+        link: "https://softengineer-dev.vercel.app/General3",
         tags: undefined
         
       },
@@ -99,6 +101,7 @@ export const categoryData: Record<string, Category> = {
         title: "Full stack Developer",
         image: "/image_portfolio/Gen4.png",
         category_label: "General",
+        link: "https://softengineer-dev.vercel.app/General4",
         tags: undefined
       },
       {
@@ -106,6 +109,7 @@ export const categoryData: Record<string, Category> = {
         title: "Kreatif",
         image: "/image_portfolio/Gen5.png",
         category_label: "General",
+        link: "https://softengineer-dev.vercel.app/General5",
         tags: undefined
       },
     ]
