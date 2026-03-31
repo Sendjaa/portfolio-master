@@ -123,7 +123,7 @@ export const categoryData: Record<string, Category> = {
       {
         id: "dig-1",
         title: "Creative Vision",
-        image: "/image_portfolio/Multimedia.png",
+        image: "/image_portfolio/multimedia.png",
         category_label: "Digital",
         link: "https://softengineer-dev.vercel.app/Multimedia",
         tags: undefined
