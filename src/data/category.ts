@@ -25,12 +25,13 @@ export const categoryData: Record<string, Category> = {
     color: "#94a3b8",
     description: "Perancangan ruang presisi teknis dan visi artistik.",
     projects: [
-      { 
-        id: "sp-1", 
-        title: "Modern Portfolio for Architects", 
+      {
+        id: "sp-1",
+        title: "Modern Portfolio for Architects",
         image: "/image_portfolio/spatial_image1.png",
-        link: "/projects/sp-1", 
-        category_label: "Architecture"
+        link: "https://softengineer-dev.vercel.app/Architecture",
+        category_label: "Architecture",
+        tags: undefined
       },
     ]
   },
@@ -40,11 +41,12 @@ export const categoryData: Record<string, Category> = {
     color: "#3b82f6",
     description: "Infrastruktur digital dan sistem backend skala besar.",
     projects: [
-      { 
-        id: "sys-1", 
-        title: "Cloud Engine", 
+      {
+        id: "sys-1",
+        title: "Cloud Engine",
         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
-        category_label: "Backend System"
+        category_label: "Backend System",
+        tags: undefined
       },
     ]
   },
@@ -58,7 +60,8 @@ export const categoryData: Record<string, Category> = {
         id: "vis-1", 
         title: "Abstract Motion", 
         image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800",
-        category_label: "Digital Art"
+        category_label: "Digital Art",
+        tags: undefined
       },
     ]
   },
@@ -73,31 +76,37 @@ export const categoryData: Record<string, Category> = {
         title: "Seniman Visual",
         image: "/image_portfolio/Gen1.png",
         category_label: "General",
-        link: ""
+        link: "",
+        tags: undefined
       },
       {
         id: "gen-2",
         title: "Ahli Strategi Digital",
         image: "/image_portfolio/Gen2.png",
-        category_label: "General"
+        category_label: "General",
+        tags: undefined
       },
       {
         id: "gen-3",
         title: "Direktur Kreatif",
         image: "/image_portfolio/Gen3.png",
-        category_label: "General"
+        category_label: "General",
+        tags: undefined
+        
       },
       {
         id: "Gen-4",
         title: "Full stack Developer",
         image: "/image_portfolio/Gen4.png",
-        category_label: "General"
+        category_label: "General",
+        tags: undefined
       },
       {
         id: "gen-5",
         title: "Kreatif",
         image: "/image_portfolio/Gen5.png",
-        category_label: "General"
+        category_label: "General",
+        tags: undefined
       },
     ]
   },
