@@ -114,4 +114,20 @@ export const categoryData: Record<string, Category> = {
       },
     ]
   },
+  Digital: {
+    title: "Digital",
+    icon: MonitorCog,
+    color: "#fbbf24",
+    description: "Pengalaman digital inovatif dan interaktif.",
+    projects: [
+      {
+        id: "dig-1",
+        title: "Creative Vision",
+        image: "/image_portfolio/Multimedia.png",
+        category_label: "Digital",
+        link: "https://softengineer-dev.vercel.app/Multimedia",
+        tags: undefined
+      },
+    ]
+  },
 };
