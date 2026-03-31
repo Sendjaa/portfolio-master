@@ -297,7 +297,7 @@ export default function EntryPage() {
             {[
               { step: "01", title: "Konsultasi", desc: "Diskusi mendalam untuk memahami visi bisnis Anda." },
               { step: "02", title: "Prototyping", desc: "Perancangan UI/UX yang modern dan intuitif." },
-              { step: "03", title: "Development", desc: "Proses coding menggunakan Next.js & sistem IoT." },
+              { step: "03", title: "Development", desc: "Proses coding menggunakan Teknologi Terkini." },
               { step: "04", title: "Support", desc: "Maintenance berkala agar sistem tetap optimal." }
             ].map((item, i) => (
               <div key={i} className="group p-8 bg-zinc-900/30 border border-white/5 rounded-[2.5rem] hover:border-[#4ade80]/30 transition-all">
@@ -372,7 +372,7 @@ export default function EntryPage() {
             >
               {social.name}
               {/* Animated Underline */}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#4ade80] transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-1px bg-[#4ade80] transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </div>
