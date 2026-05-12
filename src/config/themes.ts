@@ -73,4 +73,19 @@ export const themes: Record<string, Theme> = {
     label: "General Portfolio",
     tagline: "Diverse Creative Works"
   },
+  PortfolioThree: {
+    primary: "#10b981",
+    bg: "#111827",
+    secondary: "#f3f4f6",
+    label: "Creative Portfolio",
+    tagline: "Innovative Solutions & Design"
+  },
+  Portfolio1: {
+    primary: "#3b82f6",
+    bg: "#020617",
+    secondary: "#f8fafc",
+    label: "Tech Portfolio",
+    tagline: "Full-stack Engineer"
+  }
+
 };

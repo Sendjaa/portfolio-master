@@ -75,7 +75,6 @@ const CategoryDetailInternal = ({ categoryId, onBack }: { categoryId: string | n
   
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-        {/* Mengirimkan data kategori ke komponen detail */}
        <CategoryDetail categoryId={categoryId || "spatial"} />
     </motion.div>
   );
@@ -124,7 +123,6 @@ export default function EntryPage() {
 
   const handleTabClick = (id: string) => { 
     setSelectedId(id);
-    // window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleWhatsApp = (e: React.FormEvent) => {

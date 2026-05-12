@@ -1,0 +1,166 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white: #ffffff;
+  --off: #f8f8f7;
+  --light: #f0efed;
+  --line: #e8e7e4;
+  --mid: #c0beba;
+  --text: #1a1a18;
+  --sub: #888885;
+  --accent: #2563eb;
+  --accent-light: #eff6ff;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--white); color: var(--text); font-family: 'Figtree', sans-serif; font-weight: 300; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.2rem 3rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.logo { font-family: 'Libre Baskerville', serif; font-size: 1.2rem; }
+nav ul { list-style: none; display: flex; gap: 2.5rem; font-size: 0.82rem; color: var(--sub); }
+nav ul a:hover { color: var(--text); }
+.nav-contact { font-size: 0.8rem; font-weight: 500; color: var(--accent); padding: 0.5rem 1.2rem; border: 1px solid var(--accent); border-radius: 6px; transition: all 0.2s; }
+.nav-contact:hover { background: var(--accent); color: white; }
+
+/* HERO */
+#home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem; border-bottom: 1px solid var(--line); }
+.hero-inner { display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: center; max-width: 1100px; }
+.hero-status { display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--sub); margin-bottom: 2.5rem; }
+.status-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero-h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400; line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+.hero-h1 em { font-style: italic; color: var(--accent); }
+.hero-p { font-size: 0.9rem; line-height: 1.9; color: var(--sub); max-width: 480px; margin-bottom: 2.5rem; }
+.hero-ctas { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.cta-primary { font-size: 0.82rem; font-weight: 500; padding: 0.8rem 2rem; background: var(--text); color: white; border-radius: 8px; transition: background 0.2s; }
+.cta-primary:hover { background: var(--accent); }
+.cta-secondary { font-size: 0.82rem; font-weight: 400; padding: 0.8rem 2rem; border: 1px solid var(--line); color: var(--sub); border-radius: 8px; transition: all 0.2s; }
+.cta-secondary:hover { border-color: var(--text); color: var(--text); }
+.hero-right { position: relative; }
+.hero-img-box { border-radius: 24px; overflow: hidden; aspect-ratio: 3/4; background: var(--light); }
+.hero-img-box img { width: 100%; height: 100%; object-fit: cover; }
+.hero-tag-float {
+  position: absolute; bottom: 1.5rem; left: -2rem;
+  background: white; border: 1px solid var(--line); border-radius: 12px;
+  padding: 1rem 1.2rem; font-size: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+.hero-tag-float strong { display: block; font-family: 'Libre Baskerville', serif; font-size: 1.5rem; color: var(--accent); margin-bottom: 0.1rem; }
+
+/* MARQUEE STRIP */
+.ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 0.9rem 0; background: var(--off); }
+.ticker-inner { display: flex; gap: 3rem; white-space: nowrap; animation: ticker 20s linear infinite; font-size: 0.72rem; color: var(--mid); letter-spacing: 0.12em; text-transform: uppercase; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* LAYOUT */
+.section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+.section-full { border-bottom: 1px solid var(--line); }
+.label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.2rem; }
+.h2 { font-family: 'Libre Baskerville', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 1rem; }
+.h2 em { font-style: italic; color: var(--accent); }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.about-photo { border-radius: 20px; overflow: hidden; aspect-ratio: 1; background: var(--light); }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: filter 0.4s; }
+.about-photo:hover img { filter: grayscale(0%); }
+.about-text p { font-size: 0.85rem; line-height: 1.95; color: var(--sub); margin-bottom: 1.2rem; }
+.about-skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 1.5rem; margin-bottom: 2rem; }
+.about-skill { font-size: 0.75rem; padding: 0.4rem 0; border-bottom: 1px solid var(--line); color: var(--sub); display: flex; align-items: center; gap: 0.5rem; }
+.about-skill::before { content: '—'; color: var(--accent); }
+
+/* WORK */
+.work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+.work-link { font-size: 0.78rem; color: var(--accent); display: flex; align-items: center; gap: 0.3rem; }
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.work-card { cursor: pointer; }
+.work-img { aspect-ratio: 4/3; border-radius: 16px; background: var(--light); overflow: hidden; margin-bottom: 1.2rem; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
+.work-card:hover .work-img { transform: scale(1.01); }
+.work-num { font-family: 'Libre Baskerville', serif; font-size: 4rem; color: var(--line); }
+.work-card-cat { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.3rem; }
+.work-card-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+.work-card-desc { font-size: 0.78rem; color: var(--sub); }
+
+/* SERVICES */
+.services-two-col { display: grid; grid-template-columns: 300px 1fr; gap: 6rem; align-items: start; }
+.services-side p { font-size: 0.82rem; color: var(--sub); line-height: 1.9; margin-top: 1.5rem; }
+.services-list { display: flex; flex-direction: column; }
+.service-row {
+  display: flex; gap: 2rem; align-items: flex-start;
+  padding: 1.8rem 0; border-bottom: 1px solid var(--line);
+  cursor: default;
+}
+.service-row:first-child { border-top: 1px solid var(--line); }
+.service-n { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--mid); padding-top: 0.3rem; min-width: 30px; }
+.service-info-title { font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; transition: color 0.2s; }
+.service-row:hover .service-info-title { color: var(--accent); }
+.service-info-desc { font-size: 0.78rem; color: var(--sub); line-height: 1.7; }
+
+/* EXPERIENCE */
+#services .section-full { background: var(--off); }
+.exp-table { width: 100%; margin-top: 3rem; border-collapse: collapse; }
+.exp-table tr { border-bottom: 1px solid var(--line); }
+.exp-table tr:first-child { border-top: 1px solid var(--line); }
+.exp-table td { padding: 1.5rem 0; vertical-align: top; }
+.exp-table .td-period { font-size: 0.72rem; color: var(--mid); width: 150px; padding-top: 0.3rem; }
+.exp-table .td-role { font-size: 0.95rem; font-weight: 500; padding-right: 2rem; }
+.exp-table .td-company { font-size: 0.78rem; color: var(--accent); margin-top: 0.2rem; }
+.exp-table .td-desc { font-size: 0.78rem; color: var(--sub); line-height: 1.7; }
+
+/* TESTIMONIALS */
+.test-grid-4 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 3rem; }
+.test-cell { background: white; padding: 2rem; }
+.test-stars-blue { color: var(--accent); font-size: 0.75rem; margin-bottom: 1rem; }
+.test-text-sm { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 0.9rem; line-height: 1.8; color: var(--sub); margin-bottom: 1.5rem; }
+.test-n { font-size: 0.82rem; font-weight: 500; }
+.test-c { font-size: 0.68rem; color: var(--mid); }
+
+/* CONTACT */
+#testimonials { border-bottom: 1px solid var(--line); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; }
+.contact-left-info p { font-size: 0.85rem; color: var(--sub); line-height: 1.9; margin-top: 1.5rem; margin-bottom: 2.5rem; }
+.contact-detail-row { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
+.contact-detail-key { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); width: 80px; flex-shrink: 0; padding-top: 0.1rem; }
+.contact-detail-value { font-size: 0.82rem; }
+.form-field { margin-bottom: 1rem; }
+.form-field label { display: block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+.form-field input, .form-field textarea {
+  width: 100%; padding: 0.8rem 1rem;
+  background: var(--off); border: 1px solid var(--line); border-radius: 8px;
+  font-family: 'Figtree', sans-serif; font-size: 0.82rem; color: var(--text);
+  outline: none; transition: border-color 0.2s; resize: vertical;
+}
+.form-field input:focus, .form-field textarea:focus { border-color: var(--accent); background: var(--accent-light); }
+.form-submit { width: 100%; padding: 0.9rem; background: var(--text); color: white; border: none; border-radius: 8px; font-family: 'Figtree', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+.form-submit:hover { background: var(--accent); }
+
+/* FOOTER */
+footer { padding: 2.5rem 3rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-family: 'Libre Baskerville', serif; font-size: 1rem; }
+.footer-links { display: flex; gap: 2rem; font-size: 0.75rem; color: var(--sub); }
+.footer-links a:hover { color: var(--text); }
+.footer-right { font-size: 0.68rem; color: var(--mid); }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  nav ul { display: none; }
+  .section { padding: 4rem 1.5rem; }
+  .hero-inner, .about-grid, .services-two-col, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-right { display: none; }
+  .work-grid, .test-grid-4 { grid-template-columns: 1fr; }
+  .exp-table .td-period { display: none; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+}
